@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/Mmmams/TelegramBot.git"
+    "url": "https://github.com/Mmmams/TelegramBot.git"
   },
   "author": "Sergey Mamykin",
   "license": "ISC",

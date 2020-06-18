@@ -1,6 +1,6 @@
 
 let  sofasCatalog = [
-    {cap:'Описание 123',img: './img/sofas/one.jpg'},
+    {cap:'Описание',img: './img/sofas/one.jpg'},
     {cap:'Описание',img: './img/sofas/two.jpg'},
     {cap:'Описание',img: './img/sofas/three.jpg'},
     {cap:'Описание',img: './img/sofas/four.jpg'},
@@ -8,8 +8,8 @@ let  sofasCatalog = [
 module.exports.sofasCatalog = sofasCatalog;
 
 let  chairsCatalog = [
-    {img: './img/chairs/one.jpg'},
-    {img: './img/chairs/two.jpeg'},
+    {cap:'Описание',img: './img/chairs/one.jpg'},
+    {cap:'Описание',img: './img/chairs/two.jpeg'},
     {img: './img/chairs/three.jpg'},
     {img: './img/chairs/four.jpg'},
     {img: './img/chairs/five.jpg'}
@@ -17,7 +17,7 @@ let  chairsCatalog = [
 module.exports.chairsCatalog = chairsCatalog;
 
 const  tablesCatalog = [
-    {img: './img/tables/one.jpg'},
+    {cap:'Описание', img: './img/tables/one.jpg'},
     {img: './img/tables/two.jpg'},
     {img: './img/tables/three.jpg'},
     {img: './img/tables/four.jpg'},
@@ -31,3 +31,10 @@ const  cupboardsCatalog = [
     {img: './img/cupboards/three.jpg'},
 ];
 module.exports.cupboardsCatalog = cupboardsCatalog;
+
+const  salesCatalog = [
+    {img: './img/sales/one.jpg'},
+    {img: './img/sales/two.jpg'},
+    {img: './img/sales/three.jpg'},
+];
+module.exports.salesCatalog = salesCatalog;

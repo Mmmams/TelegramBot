@@ -3,18 +3,22 @@ const { Telegraf } = require('telegraf');
 const Catalog = require('./catalog.js');
 const Extra = require('telegraf/extra');
 const fs = require('fs');
+const Markup = require('telegraf/markup');
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
 bot.start((ctx) => {
   ctx.reply(`Привет ${ctx.message.from.first_name}. Для выбора товара используйте кнопку или введите его наименование:
-  Стулья,
-  Шкафы,
-  Столы,
-  Диваны.`);
+Стулья,
+Шкафы,
+Столы,
+Диваны.`)
   setInterval(() => {
-    ctx.reply('Запланированное действие');
+    ctx.reply('Товары на скидке');
+    sendMsgPack(ctx, Catalog.salesCatalog);
   }, 20000);
+
+ 
 });
 
 async function sendMsgPack(ctx, msgArray) {
@@ -29,6 +33,8 @@ async function sendMsgPack(ctx, msgArray) {
   console.log(cat);
   ctx.replyWithMediaGroup(cat);
 }
+
+
 
 bot.hears('Диваны', (ctx) => {
   sendMsgPack(ctx, Catalog.sofasCatalog);
@@ -47,10 +53,20 @@ bot.hears('Столы', (ctx) => {
 });
 
 bot.help((ctx) => {
-  ctx.reply(`Привет ${ctx.message.from.first_name}. Для выбора товара используйте кнопку или введите его наименование:
-  Стулья,
-  Шкафы,
-  Столы,
-  Диваны.`);
+  ctx.reply(`
+Чтобы увидеть каталог стульев, введите - Стулья
+Чтобы увидеть каталог шкафов, введите - Шкафы
+Чтобы увидеть каталог столов, введите - Столы
+Чтобы увидеть каталог диванов, введите - Диваны`);
 });
+
+bot.on('text', (ctx)=>{
+  ctx.reply(`Видимо вы ввели что то неправильно.
+Введите /help или нажмите кнопку, чтобы увидеть список команд`,
+Markup.keyboard([
+  ['/help'],
+])
+  .resize()
+  .extra());
+})
 bot.launch();
