@@ -16,7 +16,7 @@ bot.start((ctx) => {
   setInterval(() => {
     ctx.reply('Товары на скидке');
     sendMsgPack(ctx, Catalog.salesCatalog);
-  }, 20000);
+  }, 72000000);
 
  
 });
